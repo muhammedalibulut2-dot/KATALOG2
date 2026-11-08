@@ -72,7 +72,7 @@ export const App: React.FC = () => {
     : [];
 
   return (
-    <div className="min-h-screen flex flex-col bg-dark-950 text-slate-100 selection:bg-gold-500 selection:text-dark-950">
+    <div className="min-h-screen flex flex-col bg-forest-950 text-cream-300 selection:bg-action-500 selection:text-white">
       
       {/* Üst Bar */}
       <Header
@@ -93,8 +93,8 @@ export const App: React.FC = () => {
             
             {/* Karşılama ve Geniş Arama Alanı */}
             <div className="text-center max-w-3xl mx-auto space-y-4">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-semibold">
-                <ShieldCheck className="w-4 h-4 text-gold-400" />
+              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-cream-300/10 border border-cream-300/25 text-cream-200 text-xs font-semibold">
+                <ShieldCheck className="w-4 h-4 text-cream-300" />
                 <span>Çağ Teknik Kurumsal Teknik Servis Terminali</span>
               </div>
 
@@ -102,7 +102,7 @@ export const App: React.FC = () => {
                 YEDEK PARÇA & ŞEMA SİSTEMİ
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-400 font-normal">
+              <p className="text-sm sm:text-base text-cream-400/80 font-normal">
                 Endüstriyel mutfak ekipmanlarının patlatılmış montaj resimlerine, teknik servis kılavuzlarına ve üretici parça referanslarına anında erişin.
               </p>
 
@@ -119,15 +119,15 @@ export const App: React.FC = () => {
 
             {/* Arama Sonuçları Varsa Önce Onları Göster */}
             {isSearching && (
-              <div className="p-6 rounded-2xl bg-dark-900 border border-gold-500/30 shadow-card-dark">
-                <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
-                  <h3 className="text-sm font-bold text-gold-400 flex items-center space-x-2">
-                    <Sparkles className="w-4 h-4" />
+              <div className="p-6 rounded-2xl bg-forest-900 border border-cream-300/25 shadow-card-dark">
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-cream-300/15">
+                  <h3 className="text-sm font-bold text-cream-100 flex items-center space-x-2">
+                    <Sparkles className="w-4 h-4 text-action-400" />
                     <span>Arama Sonuçları: "{searchQuery}" ({searchResults.length} Cihaz Bulundu)</span>
                   </h3>
                   <button
                     onClick={() => setSearchQuery('')}
-                    className="text-xs text-slate-400 hover:text-gold-300 underline"
+                    className="text-xs text-cream-400 hover:text-action-400 underline cursor-pointer"
                   >
                     Aramayı Kapat
                   </button>
@@ -140,19 +140,19 @@ export const App: React.FC = () => {
                       return (
                         <div
                           key={device.id}
-                          className="p-4 rounded-xl bg-dark-950 border border-slate-800 hover:border-gold-500/40 transition-all flex flex-col justify-between"
+                          className="p-4 rounded-xl bg-forest-950 border border-forest-800 hover:border-cream-300/40 transition-all flex flex-col justify-between"
                         >
                           <div>
                             <div className="flex items-center justify-between mb-2">
-                              <span className="font-mono text-xs px-2 py-0.5 rounded bg-dark-900 text-gold-400 font-bold border border-gold-500/20">
+                              <span className="font-mono text-xs px-2 py-0.5 rounded bg-forest-900 text-cream-200 font-bold border border-cream-300/20">
                                 {device.modelCode}
                               </span>
-                              <span className="text-[10px] uppercase font-bold text-slate-400">
+                              <span className="text-[10px] uppercase font-bold text-cream-400">
                                 {brandObj?.name}
                               </span>
                             </div>
-                            <h4 className="text-sm font-bold text-slate-100">{device.modelName}</h4>
-                            <p className="text-xs text-slate-400 mt-1">{device.series}</p>
+                            <h4 className="text-sm font-bold text-cream-100">{device.modelName}</h4>
+                            <p className="text-xs text-cream-400/80 mt-1">{device.series}</p>
                           </div>
 
                           <button
@@ -160,7 +160,7 @@ export const App: React.FC = () => {
                               setSelectedBrand(brandObj || BRANDS[0]);
                               handleSelectDevice(device);
                             }}
-                            className="mt-4 gold-button py-1.5 px-3 rounded-lg text-xs flex items-center justify-center space-x-1 font-bold"
+                            className="mt-4 bg-action-500 hover:bg-action-600 text-white py-2 px-3.5 rounded-xl text-xs flex items-center justify-center space-x-1.5 font-bold shadow-[0_2px_10px_rgba(139,92,246,0.35)] transition-all cursor-pointer"
                           >
                             <Eye className="w-3.5 h-3.5" />
                             <span>Şemayı Aç</span>
@@ -170,7 +170,7 @@ export const App: React.FC = () => {
                     })}
                   </div>
                 ) : (
-                  <p className="text-xs text-slate-500 text-center py-6">
+                  <p className="text-xs text-cream-400/70 text-center py-6">
                     Arama kriterine uygun model bulunamadı. Lütfen model kodunu veya kelimeyi kontrol edin.
                   </p>
                 )}
@@ -179,27 +179,27 @@ export const App: React.FC = () => {
 
             {/* "FİRMA SEÇ" Başlığı ve 3 Marka Kartı */}
             <div className="space-y-6 pt-2">
-              <div className="flex items-center justify-between border-b border-gold-500/20 pb-4">
+              <div className="flex items-center justify-between border-b border-cream-300/15 pb-4">
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400">
+                  <div className="p-2 rounded-xl bg-forest-850 border border-cream-300/30 text-cream-300">
                     <Building2 className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-slate-100">
+                    <h3 className="font-cinzel text-xl sm:text-2xl font-bold tracking-wider text-cream-100">
                       FİRMA SEÇ
                     </h3>
-                    <p className="text-xs text-slate-400 font-medium">
+                    <p className="text-xs text-cream-400/80 font-medium">
                       Katalog ve patlatılmış resimlerini incelemek istediğiniz üreticiyi seçiniz
                     </p>
                   </div>
                 </div>
 
-                <span className="hidden sm:inline-block text-xs font-mono text-gold-400/80 px-3 py-1 bg-dark-900 rounded-lg border border-slate-800">
+                <span className="hidden sm:inline-block text-xs font-mono text-cream-300 px-3 py-1 bg-forest-900 rounded-lg border border-forest-800">
                   3 Yetkili Üretici
                 </span>
               </div>
 
-              {/* 3 Premium Marka Kartı: Atalay, Empero, Öztiryakiler */}
+              {/* 3 Marka Kartı: Atalay, Empero, Öztiryakiler */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 {BRANDS.map((brand) => (
                   <BrandCard

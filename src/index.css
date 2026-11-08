@@ -5,97 +5,124 @@
 @layer base {
   :root {
     color-scheme: dark;
+    --color-main: #1f4d3a;       /* %60 Ana Renk (Koyu Zümrüt / Orman Yeşili) */
+    --color-secondary: #e9dfcb;  /* %30 İkincil Renk (Sıcak Krem / Keten) */
+    --color-action: #8b5cf6;     /* %10 Sadece Tıklanabilir Renk (Canlı Mor) */
   }
   
   body {
-    background-color: #07090D;
+    background-color: #0b1c15;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(212, 175, 55, 0.04) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(212, 175, 55, 0.03) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(22, 29, 42, 0.6) 0px, transparent 100%);
-    background-attachment: fixed;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+      radial-gradient(at 100% 0%, rgba(31, 77, 58, 0.35) 0px, transparent 55%),
+      radial-gradient(at 0% 100%, rgba(31, 77, 58, 0.25) 0px, transparent 50%);
+    color: #e9dfcb;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    min-height: 100vh;
   }
 
-  /* Altın Metalik Yazı Vurgusu */
-  .text-gold-gradient {
-    background: linear-gradient(135deg, #FFF0B5 0%, #D4AF37 50%, #996515 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  ::selection {
+    background-color: #8b5cf6;
+    color: #ffffff;
   }
 
-  .text-silver-gradient {
-    background: linear-gradient(135deg, #FFFFFF 0%, #CBD5E1 50%, #64748B 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Altın Çerçeve Parıltısı */
-  .border-gold-gradient {
-    border-image: linear-gradient(135deg, rgba(212, 175, 55, 0.8), rgba(212, 175, 55, 0.1), rgba(153, 101, 21, 0.6)) 1;
-  }
-
-  /* Custom Scrollbar */
+  /* Koyu Zümrüt & Krem Uyumlu Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0E14;
+    background: #0b1c15;
   }
   ::-webkit-scrollbar-thumb {
-    background: #263248;
+    background: #1f4d3a;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #D4AF37;
+    background: #2d6d53;
   }
 }
 
 @layer components {
-  .gold-glass-card {
-    background: linear-gradient(145deg, rgba(22, 29, 42, 0.7) 0%, rgba(11, 14, 20, 0.85) 100%);
+  /* %60 Zümrüt Gövdeli, %30 Krem Çerçeveli Kart Tasarımı */
+  .pro-card, .gold-glass-card {
+    background: linear-gradient(145deg, rgba(23, 56, 42, 0.92) 0%, rgba(17, 41, 31, 0.96) 100%);
+    border: 1px solid rgba(233, 223, 203, 0.2);
+    border-radius: 1rem;
+    color: #e9dfcb;
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(212, 175, 55, 0.18);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8), inset 0 1px 0 0 rgba(212, 175, 55, 0.2);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   }
 
-  .gold-glass-card:hover {
-    border-color: rgba(212, 175, 55, 0.45);
-    box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.9), 0 0 25px -5px rgba(212, 175, 55, 0.2), inset 0 1px 0 0 rgba(212, 175, 55, 0.35);
+  .pro-card:hover, .gold-glass-card:hover {
+    border-color: rgba(233, 223, 203, 0.4);
   }
 
-  .gold-button {
-    background: linear-gradient(135deg, #F5D061 0%, #D4AF37 60%, #AA7C11 100%);
-    color: #07090D;
+  /* %10 VURGU: SADECE TIKLANMASI İSTENİLEN ÖĞELER (#8b5cf6) */
+  .btn-action, .gold-button, .btn-primary {
+    background-color: #8b5cf6;
+    color: #ffffff !important;
     font-weight: 700;
-    letter-spacing: 0.05em;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    box-shadow: 0 4px 20px -3px rgba(212, 175, 55, 0.4);
+    cursor: pointer;
+    box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.38);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .gold-button:hover {
-    background: linear-gradient(135deg, #FFF0B5 0%, #E5C158 60%, #B8891B 100%);
-    box-shadow: 0 6px 26px 0 rgba(212, 175, 55, 0.6);
+  .btn-action:hover, .gold-button:hover, .btn-primary:hover {
+    background-color: #7c3aed;
+    box-shadow: 0 6px 20px 0 rgba(139, 92, 246, 0.55);
     transform: translateY(-1px);
   }
 
-  .gold-button:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 10px -2px rgba(212, 175, 55, 0.4);
+  .btn-action:active, .gold-button:active, .btn-primary:active {
+    background-color: #6d28d9;
+    transform: translateY(0);
   }
 
-  .dark-outline-button {
-    background: rgba(16, 21, 30, 0.8);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: #F5EED8;
+  /* Tıklanabilir Çerçeveli Buton */
+  .btn-action-outline {
+    background-color: transparent;
+    border: 1.5px solid #8b5cf6;
+    color: #8b5cf6;
+    font-weight: 600;
+    cursor: pointer;
     transition: all 0.2s ease;
   }
 
-  .dark-outline-button:hover {
-    background: rgba(212, 175, 55, 0.1);
-    border-color: rgba(212, 175, 55, 0.7);
-    color: #FFFFFF;
+  .btn-action-outline:hover {
+    background-color: rgba(139, 92, 246, 0.15);
+    border-color: #a78bfa;
+    color: #c4b5fd;
+  }
+
+  /* %30 Krem İkincil Buton */
+  .btn-secondary {
+    background-color: rgba(233, 223, 203, 0.1);
+    color: #e9dfcb;
+    border: 1px solid rgba(233, 223, 203, 0.25);
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(233, 223, 203, 0.2);
+    border-color: #e9dfcb;
+    color: #ffffff;
+  }
+
+  /* %30 Krem Metin Başlık Gradyanı */
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #e9dfcb 65%, #dacdb3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* %10 Tıklanabilir Parıltı Efekti */
+  .shadow-gold-glow {
+    box-shadow: 0 0 20px -3px rgba(139, 92, 246, 0.4);
+  }
+
+  .shadow-gold-glow-lg {
+    box-shadow: 0 0 35px -5px rgba(139, 92, 246, 0.65);
   }
 }
