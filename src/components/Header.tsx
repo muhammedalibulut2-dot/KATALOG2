@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
               <ShoppingBag className="w-4 h-4 text-white" />
               <span className="hidden sm:inline">Servis Sepeti</span>
               {totalItemsCount > 0 && (
-                <span className="px-1.5 py-0.2 rounded-full bg-cream-100 text-forest-950 font-mono text-[10px] font-extrabold shadow-sm">
+                <span className="px-1.5 py-0.5 rounded-full bg-cream-100 text-forest-950 font-mono text-[10px] font-extrabold shadow-sm">
                   {totalItemsCount}
                 </span>
               )}

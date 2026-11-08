@@ -5,9 +5,9 @@
 @layer base {
   :root {
     color-scheme: dark;
-    --color-main: #1f4d3a;       /* %60 Ana Renk (Koyu Zümrüt / Orman Yeşili) */
-    --color-secondary: #e9dfcb;  /* %30 İkincil Renk (Sıcak Krem / Keten) */
-    --color-action: #8b5cf6;     /* %10 Sadece Tıklanabilir Renk (Canlı Mor) */
+    --color-main: #1f4d3a;
+    --color-secondary: #e9dfcb;
+    --color-action: #8b5cf6;
   }
   
   body {
@@ -20,11 +20,6 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
     min-height: 100vh;
-  }
-
-  ::selection {
-    background-color: #8b5cf6;
-    color: #ffffff;
   }
 
   /* Koyu Zümrüt & Krem Uyumlu Scrollbar */
@@ -62,7 +57,7 @@
   /* %10 VURGU: SADECE TIKLANMASI İSTENİLEN ÖĞELER (#8b5cf6) */
   .btn-action, .gold-button, .btn-primary {
     background-color: #8b5cf6;
-    color: #ffffff !important;
+    color: #ffffff;
     font-weight: 700;
     cursor: pointer;
     box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.38);

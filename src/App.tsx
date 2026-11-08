@@ -123,7 +123,7 @@ export const App: React.FC = () => {
                 <div className="flex items-center justify-between mb-4 pb-3 border-b border-cream-300/15">
                   <h3 className="text-sm font-bold text-cream-100 flex items-center space-x-2">
                     <Sparkles className="w-4 h-4 text-action-400" />
-                    <span>Arama Sonuçları: "{searchQuery}" ({searchResults.length} Cihaz Bulundu)</span>
+                    <span>Arama Sonuçları: &ldquo;{searchQuery}&rdquo; ({searchResults.length} Cihaz Bulundu)</span>
                   </h3>
                   <button
                     onClick={() => setSearchQuery('')}
